@@ -1,0 +1,86 @@
+﻿@page
+@model ShopexCoreV2.Pages.UsersModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="~/js/jquery-ui/js/jquery-ui-1.10.3.custom.min.js">
+    <link rel="stylesheet" href="~/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/neon-core.css">
+    <link rel="stylesheet" href="~/css/neon-theme.css">
+    <link rel="stylesheet" href="~/css/neon-forms.css">
+    <link rel="stylesheet" href="~/css/custom.css">
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <div class="page-container" class="page-body" data-url="http://neon.dev">
+        <div class="main-content">
+            
+            <div class="tab-content">
+                <div class="tab-pane active" id="all-products">
+
+                    <div>
+                        <!-- Table -->
+                        <table class="table responsive shopex-table">
+                            <thead>
+                                <tr>
+                                   
+                                    
+                                    <th class="is-sortable">
+                                        <span>Email</span>
+                                    </th>
+                                    <th class="is-sortable">
+                                        <span>Password</span>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model.users)
+                                {
+                                    <tr>
+                                        <td class="vcenter">@item.Email</td>
+                                        <td class="vcenter">@item.Passwprd</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                        <!-- Navigation -->
+                        <ul class="pagination">
+                            <li><a href="#"><i class="entypo-left-open-mini"></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li class="disabled"><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#"><i class="entypo-right-open-mini"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <script src="~/js/gsap/main-gsap.js"></script>
+    <script src="~/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/joinable.js"></script>
+    <script src="~/js/resizeable.js"></script>
+    <script src="~/js/neon-api.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/neon-login.js"></script>
+    <script src="~/js/neon-custom.js"></script>
+    <script src="~/js/neon-demo.js"></script>
+</body>
+
+
+

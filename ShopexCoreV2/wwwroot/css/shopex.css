@@ -1,0 +1,56 @@
+﻿/* Shopex Custom CSS */
+
+/* Table Classes */
+table.shopex-table {
+    
+}
+th.select, td.select 
+{
+width: 12px;
+padding-right: 7px!important;
+padding-left: 7px!important;
+}
+th.image
+{
+width: 50px;
+padding-right: 5px;
+}
+th.is-sortable {
+cursor: pointer;
+}
+th.sorted-desc>span:last-of-type, th.sorted-asc>span:last-of-type {
+background-repeat: no-repeat;
+background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA8AgMAAAAS89K/AAAACVBMVEUAAACSkpL///9v/CXFAAAAAXRSTlMAQObYZgAAAC5JREFUGNNjYKAYhIYAiakRQEI1AUhwNgAJJoaBBowggtUBSIgGwBy5agVFRgIAB40FTTNBpJwAAAAASUVORK5CYII=");
+}
+th.sorted-asc>span {
+background-position: 100% -37px;
+}
+th.is-sortable>span {
+padding-right: 16px;
+}
+th>span {
+display: inline-block;
+}
+th.sorted-desc>span:last-of-type, th.sorted-asc>span:last-of-type {
+background-repeat: no-repeat;
+background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA8AgMAAAAS89K/AAAACVBMVEUAAACSkpL///9v/CXFAAAAAXRSTlMAQObYZgAAAC5JREFUGNNjYKAYhIYAiakRQEI1AUhwNgAJJoaBBowggtUBSIgGwBy5agVFRgIAB40FTTNBpJwAAAAASUVORK5CYII=");
+}
+th.sorted-desc>span {
+background-position: 100% -7px;
+}
+td.image.thumb {
+height: 75px;
+text-align:center;
+}
+td.image img {
+max-width: 75px;
+margin: 0 auto;
+border-radius: 4px;
+}
+td.vcenter
+{
+    vertical-align:middle!important;
+}
+td.header {
+background-color: #f8f8f8;
+}

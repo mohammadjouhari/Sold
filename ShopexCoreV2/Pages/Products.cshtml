@@ -1,0 +1,210 @@
+﻿@page
+@model ShopexCoreV2.Pages.ProductsModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="~/js/jquery-ui/js/jquery-ui-1.10.3.custom.min.js">
+    <link rel="stylesheet" href="~/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/neon-core.css">
+    <link rel="stylesheet" href="~/css/neon-theme.css">
+    <link rel="stylesheet" href="~/css/neon-forms.css">
+    <link rel="stylesheet" href="~/css/custom.css">
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <div class="page-container" class="page-body" data-url="http://neon.dev">
+        <div class="sidebar-menu">
+            <header class="logo-env">
+                <div class="logo">
+                    <a asp-page="Products">
+                        <img src="~/images/JouhariLogo.jpg" width="120" alt="" />
+                    </a>
+                </div>
+                <div class="sidebar-mobile-menu visible-xs">
+                    <a href="#" class="with-animation">
+                        <i class="entypo-menu"></i>
+                    </a>
+                </div>
+            </header>
+            <ul id="main-menu" class="">
+                <li id="search">
+                    <form method="get" action="">
+                        <input type="text" name="q" class="search-input" placeholder="Search" />
+                        <button type="submit">
+                            <i class="entypo-search"></i>
+                        </button>
+                    </form>
+                </li>
+
+                <li class="active">
+                    <a href="#">
+                        <i class="entypo-tag"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="Login">
+                        <i class="entypo-logout"></i>
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="row">
+                <div class="col-md-8">
+                    <ol class="breadcrumb bc-3">
+                        <li>
+                            <a asp-page="products"><i class="entypo-home"></i>Home</a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-md-4">
+                    <div class="pull-right">
+                        <a class="btn btn-blue" asp-page="AddProduct">Add a product</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="all-products">
+
+                    <div>
+
+                        <!-- Search Products -->
+                        <form method="get" class="search-bar" action="" enctype="application/x-www-form-urlencoded">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="search" placeholder="Search Products...">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Table -->
+                        <table class="table responsive shopex-table">
+                            <thead>
+                                <tr>
+                                    <th class="select"><input type="checkbox"></th>
+                                    <th class="image"></th>
+                                    <th class="is-sortable sorted-asc">
+                                        <span>Product</span>
+                                    </th>
+                                    <th class="is-sortable">
+                                        <span>Price</span>
+                                    </th>
+                                    <th class="is-sortable">
+                                        <span>Model</span>
+                                    </th>
+                                    <th class="is-sortable">
+                                        <span>Type</span>
+                                    </th>
+                                    <th class="is-sortable">
+                                        <span>Cart</span>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model.Products)
+                                {
+                                    <tr>
+                                        <td class="vcenter"><input type="checkbox"></td>
+                                        <td class="image thumb">
+                                            <img style="width:25px" src="@item.ImagePath" />
+                                        </td>
+                                        <td class="vcenter">
+                                            <a asp-page="AddProduct">@item.Title</a>
+                                        </td>
+                                        <td class="vcenter">@item.Price</td>
+                                        <td class="vcenter">@item.Model</td>
+                                        <td class="vcenter">@item.Type </td>
+                                        <td class="vcenter">
+                                            <button type="button"
+                                                    data-email="@item.Email"
+                                                    onclick="myFunction(this)"
+                                                    data-mobile="@item.Mobile"
+                                                    class="btn btn-orange">
+                                                Contact The Owner
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                        <!-- Navigation -->
+                        <ul class="pagination">
+                            <li><a href="#"><i class="entypo-left-open-mini"></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li class="disabled"><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#"><i class="entypo-right-open-mini"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div class="modal fade" id="UserModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Owner Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Email:</label>
+                            <input type="text" class="form-control" id="UserEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Mobile:</label>
+                            <input type="text" id="UserMobile" class="form-control">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/gsap/main-gsap.js"></script>
+    <script src="~/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/joinable.js"></script>
+    <script src="~/js/resizeable.js"></script>
+    <script src="~/js/neon-api.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/neon-login.js"></script>
+    <script src="~/js/neon-custom.js"></script>
+    <script src="~/js/neon-demo.js"></script>
+
+    <script type="text/javascript">
+        function myFunction(param) {
+            $("#UserEmail").val($(param).data("email"));
+            $("#UserMobile").val($(param).data("mobile"));
+            $('#UserModal').modal('show');
+        }
+    </script>
+</body>
+</html>
+
+

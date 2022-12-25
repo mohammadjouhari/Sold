@@ -1,0 +1,167 @@
+﻿@page
+@model ShopexCoreV2.Pages.CreateAccountModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Shopex Login" />
+    <link rel="stylesheet" href="~/js/jquery-ui/js/jquery-ui-1.10.3.custom.min.js">
+    <link rel="stylesheet" href="~/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/neon-core.css">
+    <link rel="stylesheet" href="~/css/neon-theme.css">
+    <link rel="stylesheet" href="~/css/neon-forms.css">
+    <link rel="stylesheet" href="~/css/custom.css">
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <style>
+        .login-header {
+            padding: 0 !important;
+        }
+    </style>
+</head>
+<body class="page-body login-page login-form-fall>
+    <div class="login-containerj">
+        <div class="login-header login-caret">
+            <div class="login-content">
+                <img src="~/images/JouhariLogo.jpg" width="120" alt="" />
+                <p class="description">
+                    Welcome!Mohammad jouhari will help you sell your products online Simple Idea
+                    I have doen this project in 2 days still under developing
+                </p>
+                <div>
+                    <img style="display: block; margin-left: auto; margin-right: auto; width: 30%;" 
+                         src="~/images/me.jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="login-form">
+            <div class="login-content">
+                <form method="post" role="form" id="register">
+                    <div class="form-group">
+                        <p>Country</p>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-address"></i>
+                            </div>
+                            <select class="select2" name="country">
+                                <option></option>
+                                <optgroup label="Country">
+                                    <option selected="selected">UAE</option>
+                                    <option>KSA</option>
+                                    <option>Bahrain</option>
+                                    <option>Qatar</option>
+                                    <option>Oman</option>
+                                    <option>kuwait</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-user"></i>
+                            </div>
+                            <input type="text" required class="form-control"
+                                   name="Username" id="username" placeholder="username" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-user"></i>
+                            </div>
+                            <input type="text" required class="form-control"
+                                   name="Name" id="name" placeholder="name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-address"></i>
+                            </div>
+                            <input type="email" placeholder="email" id="email" name="Email" class="form-control"
+                                   pattern="^[a-zA-Z0-9._+-]+@("@")[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-mobile"></i>
+                            </div>
+                            <input  type="tel"  
+                                   required class="form-control"
+                                   name="Mobile" id="mobile" placeholder="Mobile" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-mobile"></i>
+                            </div>
+                            <input type="text" required class="form-control"
+                                   name="Password" id="Password"  
+                                   placeholder="Password" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-mobile"></i>
+                            </div>
+                            <input type="text"  required class="form-control"
+                                   name="ConfirmPassword" id="ConfirmPassword" placeholder="ConfirmPassword" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" onclick="ConfirmPassword();" style="text-align:center" class="btn btn-primary btn-block btn-login">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <link rel="stylesheet" href="~/js/wysihtml5/bootstrap-wysihtml5.css">
+    <link rel="stylesheet" href="~/js/selectboxit/jquery.selectBoxIt.css">
+    <link rel="stylesheet" href="~/js/select2/select2-bootstrap.css">
+    <link rel="stylesheet" href="~/js/select2/select2.css">
+    <script src="~/js/select2/select2.js"></script>
+    <script src="~/js/gsap/main-gsap.js"></script>
+    <script src="~/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/joinable.js"></script>
+    <script src="~/js/resizeable.js"></script>
+    <script src="~/js/neon-api.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/neon-login.js"></script>
+    <script src="~/js/neon-custom.js"></script>
+    <script src="~/js/neon-demo.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var txtPassword = document.getElementById("Password");
+            var txtConfirmPassword = document.getElementById("ConfirmPassword");
+            txtPassword.onchange = ConfirmPassword;
+            txtConfirmPassword.onkeyup = ConfirmPassword;
+            function ConfirmPassword() {
+                txtConfirmPassword.setCustomValidity("");
+                if (txtPassword.value != txtConfirmPassword.value) {
+                    txtConfirmPassword.setCustomValidity("Passwords do not match.");
+                }
+            }
+        }
+    </script>
+</body>
+
